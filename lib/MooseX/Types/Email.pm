@@ -1,13 +1,8 @@
-package MooseX::Types::Email;
-BEGIN {
-  $MooseX::Types::Email::AUTHORITY = 'cpan:BOBTFISH';
-}
-{
-  $MooseX::Types::Email::VERSION = '0.006';
-}
-# git description: 2a8e05c
-
+package MooseX::Types::Email; # git description: v0.006-19-gec41ca1
 # ABSTRACT: Email address validation type constraints for Moose.
+# KEYWORDS: moose type constraint email address message abstract
+
+our $VERSION = '0.007';
 
 use MooseX::Types
     -declare => [qw/EmailAddress EmailMessage EmailAddresses EmailMessages/];
@@ -15,6 +10,7 @@ use MooseX::Types
 use MooseX::Types::Moose qw/Object ArrayRef Str/;
 use Email::Valid;
 use Email::Abstract;
+use if MooseX::Types->VERSION >= 0.42, 'namespace::autoclean';
 
 subtype EmailAddress,
   as Str,
@@ -60,7 +56,7 @@ MooseX::Types::Email - Email address validation type constraints for Moose.
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
@@ -115,7 +111,31 @@ addresses and messages.
 
 Tomas Doran (t0m) <bobtfish@bobtfish.net
 
-=head1 COPYRIGHT AND LICENSE
+=head1 CONTRIBUTORS
+
+=for stopwords Karen Etheridge Tomas Doran (t0m) Alexander Hartmaier Chris Nehren
+
+=over 4
+
+=item *
+
+Karen Etheridge <ether@cpan.org>
+
+=item *
+
+Tomas Doran (t0m) <bobtfish@bobtfish.net>
+
+=item *
+
+Alexander Hartmaier <abraxxa@cpan.org>
+
+=item *
+
+Chris Nehren <apeiron@cpan.org>
+
+=back
+
+=head1 COPYRIGHT AND LICENCE
 
 This software is copyright (c) 2009 by Tomas Doran (t0m).
 
